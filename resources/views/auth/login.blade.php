@@ -4,8 +4,7 @@
 <div class="container" style="height: auto;">
     <div class="row align-items-center">
         <div class="col-md-9 ml-auto mr-auto mb-3 text-center">
-            <h3>{{ __('Log in here.') }}
-            </h3>
+            <h3>{{ __('Log in here.') }}</h3>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
             <form class="form" method="POST" action="{{ route('login') }}">
@@ -36,7 +35,7 @@
                                     </span>
                                 </div>
                                 <input type="email" name="email" class="form-control" placeholder="{{ __('Email...') }}"
-                                    value="{{ old('email', null) }}" required autocomplete="email" autofocus
+                                    value="{{ old('email', null) }}" required autocomplete="email" autofocus>
                             </div>
                             @if ($errors->has('email'))
                             <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">
@@ -52,8 +51,7 @@
                                     </span>
                                 </div>
                                 <input type="password" name="password" id="password" class="form-control"
-                                    placeholder="{{ __('Password...') }}"
-                                    required autocomplete="current-password">
+                                    placeholder="{{ __('Password...') }}" required autocomplete="current-password">
                             </div>
                             @if ($errors->has('password'))
                             <div id="password-error" class="error text-danger pl-3" for="password"
