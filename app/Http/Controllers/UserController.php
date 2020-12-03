@@ -24,6 +24,6 @@ class UserController extends Controller
             + [
                 'password' => bcrypt($request->input('password')),
             ]);
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success', 'Usuario creado correctamente');
     }
 }
