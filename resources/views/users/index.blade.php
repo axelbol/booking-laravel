@@ -16,7 +16,7 @@
                     <div class="alert alert-success" role="success">
                       {{ session('success') }}
                     </div>
-                    @endi
+                    @endif
                     <div class="row">
                       <div class="col-12 text-right">
                         <a href="{{ route('users.create') }}" class="btn btn-sm btn-facebook">Añadir usuario</a>
@@ -41,9 +41,7 @@
                               <td>{{ $user->username }}</td>
                               <td>{{ $user->created_at }}</td>
                               <td class="td-actions text-right">
-                                <button class="btn btn-info" type="button">
-                                  <i class="material-icons">person</i>
-                                </button>
+                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
                                 <button class="btn btn-warning" type="button">
                                   <i class="material-icons">edit</i>
                                 </button>
