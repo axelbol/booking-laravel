@@ -95,7 +95,7 @@
                         </tr>
                         <tr>
                           <th>Created at</th>
-                          <td><a href="#" target="_blank">{!! $user->created_at !!}</a></td>
+                          <td><a href="#" target="_blank">{{  $user->created_at  }}</a></td>
                         </tr>
                       </tbody>
                     </table>

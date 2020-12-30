@@ -42,9 +42,7 @@
                               <td>{{ $user->created_at }}</td>
                               <td class="td-actions text-right">
                                 <a href="{{ route('users.show', $user->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
-                                <button class="btn btn-warning" type="button">
-                                  <i class="material-icons">edit</i>
-                                </button>
+                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>
                                 <button class="btn btn-danger" type="button" rel="tooltip">
                                   <i class="material-icons">close</i>
                                 </button>
