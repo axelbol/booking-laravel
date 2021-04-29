@@ -47,10 +47,10 @@
             <p>Usuarios</p>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'typography' ? ' active' : '' }}">
-        <a class="nav-link" href="#">
+      <li class="nav-item{{ $activePage == 'posts' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('posts.index') }}">
           <i class="material-icons">library_books</i>
-            <p>{{ __('Typography') }}</p>
+            <p>{{ __('Post') }}</p>
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'icons' ? ' active' : '' }}">
