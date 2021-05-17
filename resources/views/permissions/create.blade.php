@@ -16,7 +16,9 @@
               <div class="row">
                 <label for="name" class="col-sm-2 col-form-label">Nombre del permiso</label>
                 <div class="col-sm-7">
-                  <input type="text" class="form-control" name="name" autofocus>
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="name" autofocus>
+                  </div>
                 </div>
               </div>
             </div>
