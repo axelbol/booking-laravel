@@ -55,6 +55,7 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
+        $role->load('permissions');
         return view('roles.show', compact('role'));
     }
 
@@ -66,7 +67,10 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        return view('roles.edit', compact('role'));
+        $permissions = Permission::all()->pluck('name', 'id');
+        $role->load('permissions');
+        // dd($role);
+        return view('roles.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -79,6 +83,8 @@ class RoleController extends Controller
     public function update(Request $request, Role $role)
     {
         $role->update($request->only('name'));
+
+        $role->permissions()->sync($request->input('permissions', []));
 
         return redirect()->route('roles.index');
     }
