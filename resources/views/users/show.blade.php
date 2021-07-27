@@ -102,6 +102,16 @@
                           <th>Created at</th>
                           <td><a href="#" target="_blank">{{  $user->created_at  }}</a></td>
                         </tr>
+                        <tr>
+                            <th>Roles</th>
+                            <td>
+                                @forelse ($user->roles as $role)
+                                    <span class="badge rounded-pill bg-dark text-white">{{ $role->name }}</span>
+                                @empty
+                                    <span class="badge badge-danger bg-danger">No roles</span>
+                                @endforelse
+                            </td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
