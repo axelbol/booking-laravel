@@ -13,7 +13,9 @@
           <div class="card-body">
             <div class="row">
               <div class="col-12 text-right">
+                @can('post_create')
                 <a href="{{ route('posts.create') }}" class="btn btn-sm btn-facebook">Añadir post</a>
+                @endcan
               </div>
             </div>
             <div class="table-responsive">
@@ -31,10 +33,15 @@
                     <td>{{ $post->title }}</td>
                     <td class="text-primary">{{ $post->created_at->toFormattedDateString() }}</td>
                     <td class="td-actions text-right">
+                    @can('post_show')
                       <a href="{{ route('posts.show', $post->id) }}" class="btn btn-info"> <i
                           class="material-icons">person</i> </a>
+                    @endcan
+                    @can('post_edit')
                       <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-success"> <i
                           class="material-icons">edit</i> </a>
+                    @endcan
+                    @can('post_destroy')
                       <form action="{{ route('posts.destroy', $post->id) }}" method="post"
                         onsubmit="return confirm('areYouSure')" style="display: inline-block;">
                         @csrf
@@ -43,6 +50,7 @@
                           <i class="material-icons">close</i>
                         </button>
                       </form>
+                      @endcan
                     </td>
                   </tr>
                   @empty

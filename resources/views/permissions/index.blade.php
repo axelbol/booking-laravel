@@ -15,7 +15,9 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-12 text-right">
+                    @can('permission_create')
                       <a href="{{ route('permissions.create') }}" class="btn btn-sm btn-facebook">Añadir permiso</a>
+                    @endcan
                     </div>
                   </div>
                   <div class="table-responsive">
@@ -35,10 +37,15 @@
                           <td>{{ $permission->guard_name }}</td>
                           <td>{{ $permission->created_at }}</td>
                           <td class="td-actions text-right">
+                            @can('permission_show')
                             <a href="{{ route('permissions.show', $permission->id) }}" class="btn btn-info"><i
                                 class="material-icons">person</i></a>
+                            @endcan
+                            @can('permission_edit')
                             <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-warning"><i
                                 class="material-icons">edit</i></a>
+                            @endcan
+                            @can('permission_destroy')
                             <form action="{{ route('permissions.destroy', $permission->id) }}" method="POST"
                               style="display: inline-block;" onsubmit="return confirm('Seguro?')">
                               @csrf
@@ -47,6 +54,7 @@
                                 <i class="material-icons">close</i>
                               </button>
                             </form>
+                            @endcan
                           </td>
                         </tr>
                         @empty

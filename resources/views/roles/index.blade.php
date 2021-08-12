@@ -13,7 +13,9 @@
           <div class="card-body">
             <div class="row">
               <div class="col-12 text-right">
+                @can('role_create')
                 <a href="{{ route('roles.create') }}" class="btn btn-sm btn-facebook">Añadir nuevo rol</a>
+                @endcan
               </div>
             </div>
             <div class="table-responsive">
@@ -41,10 +43,15 @@
                       @endforelse
                     </td>
                     <td class="td-actions text-right">
+                    @can('role_show')
                       <a href="{{ route('roles.show', $role->id) }}" class="btn btn-info"> <i
                           class="material-icons">person</i> </a>
+                    @endcan
+                    @can('role_edit')
                       <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-success"> <i
                           class="material-icons">edit</i> </a>
+                    @endcan
+                    @can('role_destroy')
                       <form action="{{ route('roles.destroy', $role->id) }}" method="post"
                         onsubmit="return confirm('areYouSure')" style="display: inline-block;">
                         @csrf
@@ -53,6 +60,7 @@
                           <i class="material-icons">close</i>
                         </button>
                       </form>
+                    @endcan
                     </td>
                   </tr>
                   @empty
