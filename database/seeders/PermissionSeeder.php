@@ -14,6 +14,9 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
+        // spatie documentation
+        app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
+
         $permissions = [
             'permission_index',
             'permission_create',

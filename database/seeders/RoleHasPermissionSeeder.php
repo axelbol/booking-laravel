@@ -15,6 +15,8 @@ class RoleHasPermissionSeeder extends Seeder
      */
     public function run()
     {
+        app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
+
         // Admin
         $admin_permissions = Permission::all();
         Role::findOrFail(1)->permissions()->sync($admin_permissions->pluck('id'));
